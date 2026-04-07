@@ -28,5 +28,5 @@ def matrix_multiply(A, B):
     for i in range(n):
         for j in range(n):
             for k in range(n):
-                C[i][j] += A[i][k] * B[k][j]  # A의 i행 × B의 j열
+                C[i][j] += A[i][k] * B[k][j]
     return C
