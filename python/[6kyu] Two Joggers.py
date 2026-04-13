@@ -27,22 +27,13 @@ nbr_of_laps(5, 3) # returns (3, 5)
 nbr_of_laps(4, 6) # returns (3, 2)
 """
 
-def find_lcm(x, y):
-    is_finished = False
-    flag = x
-    lcm = None
+def find_gdc(x, y):
+    while y:
+        x, y = y, x % y
 
-    while not is_finished:
-        if flag % x == 0 and flag % y == 0:
-            lcm = flag
-            is_finished = True
-        else:
-            flag += 1
-
-    return lcm
+    return x
 
 def nbr_of_laps(x, y):
-    lcm = find_lcm(x, y)
-    return (lcm // x, lcm // y)
+    lcm = x * y // find_gdc(x, y)
 
-print(nbr_of_laps(5, 3))
+    return (lcm // x, lcm // y)
