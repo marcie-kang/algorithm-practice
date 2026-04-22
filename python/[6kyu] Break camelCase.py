@@ -9,7 +9,6 @@ Example
 
 def solution(s):
     copied = list(s)
-    is_on = True
     answer = []
 
     while len(copied):
