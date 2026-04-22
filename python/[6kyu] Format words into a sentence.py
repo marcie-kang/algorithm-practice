@@ -14,20 +14,12 @@ Example: (Input --> output)
 """
 
 def format_words(words):
-    if len(words) == 0: return ""
+    if words == None or words == [""] or len(words) == 0: return ""
 
     final_words = list(filter(None, words))
-    result = final_words[0]
 
-    for idx, word in enumerate(final_words[1:], start = 1):
-        if idx != (len(final_words) - 1):
-            result += ", " + word
-        elif idx == (len(final_words) - 1):
-            result += " and " + word
+    if len(final_words) <= 2:
+        joiner = " and " if len(final_words) == 2 else ""
+        return joiner.join(final_words)
 
-    return result
-
-print(format_words(['ninja', 'samurai', 'ronin']))
-print(format_words(['ninja', '', 'ronin']))
-print(format_words(['', '', 'three']))
-print(format_words([]))
+    return ", ".join(final_words[:-1]) + " and " + final_words[-1]
