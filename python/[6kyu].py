@@ -1,19 +1,24 @@
 """
-You've just discovered a square (NxN) field and you notice a warning sign. The sign states that there's a single bomb in the 2D grid-like field in front of you.
+Find the sum of the digits of all the numbers from 1 to N (both ends included).
 
-Write a function that accepts a 2D array, and returns the location of the mine. The mine is represented as the integer 1 in the 2D array. Areas in the 2D array that are not the mine will be represented as 0s.
+Examples
+# N = 4
+1 + 2 + 3 + 4 = 10
 
-The location returned should be an array (Tuple<int, int> in C#, RAX:RDX in NASM, std::pair<std::size_t, std::size_t> in C++) where the first element is the row index, and the second element is the column index of the bomb location (both should be 0 based). All 2D arrays passed into your function will be a square (NxN), and there will only be one mine in the array.
+# N = 10
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + (1 + 0) = 46
 
-Examples (Input --> Output)
-[ [1, 0, 0], [0, 0, 0], [0, 0, 0] ] --> [0, 0]
-
-[ [0, 0, 0], [0, 1, 0], [0, 0, 0] ] --> [1, 1]
-
-[ [0, 0, 0], [0, 0, 0], [0, 1, 0] ] --> [2, 1]
+# N = 12
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + (1 + 0) + (1 + 1) + (1 + 2) = 51
 """
 
-def mine_location(field):
-    for row, location in enumerate(field):
-        if 1 in location:
-            return [row, location.index(1)]
+def compute_sum(n):
+    total = 0
+
+    for number in range(1, n + 1):
+        if len(str(number)) == 1:
+            total += number
+        else:
+            total += sum(int(operator) for operator in str(number))
+
+    return total
