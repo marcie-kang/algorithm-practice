@@ -30,5 +30,7 @@ def find_missing_number(numbers):
 # solution2
 def find_missing_number2(numbers):
     n = len(numbers) + 1
+    total_sum = n * (n + 1) // 2
+    actual_sum = sum(numbers)
 
-    return n * (n + 1) // 2 - sum(numbers)
+    return total_sum - actual_sum
