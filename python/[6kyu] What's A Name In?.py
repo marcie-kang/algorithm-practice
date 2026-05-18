@@ -41,15 +41,11 @@ Examples
 
 def name_in_str(strng : str, name : str) -> bool:
     target = list(name.lower())
-    strng = strng.lower()
 
-    for char in strng:
+    for char in strng.lower():
         if not target:
             return True
-        if char == target[0]:
+        if target[0] == char:
             target.pop(0)
 
     return len(target) == 0
-
-print(name_in_str("pippippi","Pippi"))
-print(name_in_str("Across the rivers", "chris"))
